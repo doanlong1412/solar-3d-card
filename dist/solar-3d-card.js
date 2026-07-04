@@ -2457,9 +2457,9 @@ let battGroundGlowMat=null;// vòng sáng đáy bồn tỏa ra sàn – đổi m
 // ═══════════════════════════════════════════════════════
 //  XE FERRARI 3D – đỗ cạnh bồn pin (battery)
 // ═══════════════════════════════════════════════════════
-// File .glb cần được đặt trong /config/www/ của Home Assistant để truy cập
-// qua URL /local/<tên file>.glb (mặc định: /local/ferrari.glb). Có thể đổi
-// đường dẫn qua config key car_model_url nếu đặt tên/thư mục khác.
+// Mặc định lấy model mẫu được HACS tự tải kèm card qua /hacsfiles/solar-3d-card/.
+// Có thể đổi đường dẫn qua config key car_model_url nếu dùng model riêng
+// (ví dụ đặt trong /config/www/ rồi dùng /local/<tên file>.glb).
 // Tự động scale theo chiều dài thực (~4.3m) bất kể đơn vị gốc của model,
 // và tự canh đáy xe chạm mặt sân (y=0) nên không cần biết trước bounding box.
 {
@@ -2512,8 +2512,9 @@ let battGroundGlowMat=null;// vòng sáng đáy bồn tỏa ra sàn – đổi m
 //  THAY NGÔI NHÀ – nạp model cottage mới thay cho villa vẽ tay,
 //  giữ nguyên hồ bơi / cổng / cây cọ / tấm pin / inverter / battery / xe
 // ═══════════════════════════════════════════════════════
-// File .glb cần đặt trong /config/www/ để truy cập qua /local/<tên file>.glb
-// (mặc định: /local/cottage.glb). Đổi qua config key house_model_url nếu cần.
+// Mặc định lấy model mẫu được HACS tự tải kèm card qua /hacsfiles/solar-3d-card/.
+// Đổi qua config key house_model_url nếu dùng model riêng (đặt trong
+// /config/www/ rồi dùng /local/<tên file>.glb).
 // villa cũ chỉ bị ẩn SAU KHI nhà mới load thành công (nếu lỗi, vẫn thấy villa cũ
 // thay vì mất nhà hoàn toàn).
 {
@@ -4165,8 +4166,8 @@ this._animateRunning=true;
     static getStubConfig(){
       return {
         villa_name:'03 Cao Lồi',
-        car_model_url:'/local/ferrari.glb',
-        house_model_url:'/local/cottage.glb',
+        car_model_url:'/hacsfiles/solar-3d-card/ferrari.glb',
+        house_model_url:'/hacsfiles/solar-3d-card/cottage.glb',
         solar_power_entity:'',
         battery_level_entity:'',
         battery_charging_entity:'',
@@ -4353,9 +4354,9 @@ class Solar3dCardEditor extends HTMLElement {
     <div class="section" id="sec-model">
       <div class="sec-head" data-sec="model">🚗 Model 3D <span class="arrow">▶</span></div>
       <div class="sec-body" id="body-model">
-        ${this._textInput('car_model_url','URL xe (.glb)','/local/ferrari.glb')}
-        ${this._textInput('house_model_url','URL nhà (.glb)','/local/cottage.glb')}
-        <div class="tip">Đặt file <code>.glb</code> vào <code>/config/www/</code> rồi dùng đường dẫn <code>/local/tên-file.glb</code>.</div>
+        ${this._textInput('car_model_url','URL xe (.glb)','/hacsfiles/solar-3d-card/ferrari.glb')}
+        ${this._textInput('house_model_url','URL nhà (.glb)','/hacsfiles/solar-3d-card/cottage.glb')}
+        <div class="tip">Mặc định dùng model mẫu HACS tự tải kèm card. Muốn dùng model riêng: đặt file <code>.glb</code> vào <code>/config/www/</code> rồi dùng đường dẫn <code>/local/tên-file.glb</code>.</div>
       </div>
     </div>
 
