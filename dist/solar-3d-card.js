@@ -2463,7 +2463,7 @@ let battGroundGlowMat=null;// vòng sáng đáy bồn tỏa ra sàn – đổi m
 // Tự động scale theo chiều dài thực (~4.3m) bất kể đơn vị gốc của model,
 // và tự canh đáy xe chạm mặt sân (y=0) nên không cần biết trước bounding box.
 {
-  const carUrl = (this._cfg && this._cfg.car_model_url) || '/local/ferrari.glb';
+  const carUrl = (this._cfg && this._cfg.car_model_url) || '/hacsfiles/solar-3d-card/ferrari.glb';
   console.info('[solar-3d-card] Bắt đầu nạp model xe:', carUrl);
   Promise.all([ensureGLTFLoader(), ensureDracoLoader()]).then(()=>{
     if(this._destroyed) return;
@@ -2517,7 +2517,7 @@ let battGroundGlowMat=null;// vòng sáng đáy bồn tỏa ra sàn – đổi m
 // villa cũ chỉ bị ẩn SAU KHI nhà mới load thành công (nếu lỗi, vẫn thấy villa cũ
 // thay vì mất nhà hoàn toàn).
 {
-  const houseUrl = (this._cfg && this._cfg.house_model_url) || '/local/cottage.glb';
+  const houseUrl = (this._cfg && this._cfg.house_model_url) || '/hacsfiles/solar-3d-card/cottage.glb';
   console.info('[solar-3d-card] Bắt đầu nạp model nhà mới:', houseUrl);
 
   // Các mesh của model gốc trùng chức năng với những gì scene đã có sẵn
